@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Grid with Images</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+        text-align: center;
+        color: brown; 
+        }
+
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            color: #1d4c6c;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            border-color: #667a8e;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card h2 {
+            margin: 10px 0 5px 0;
+            font-size: 1.5em;
+            color: #007bff;
+        }
+
+        .card p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card-grid" id="cardGrid">
+        </div>
+    </div>
+
+    <script>
+        const cards = [
+            {
+                title: 'FLOWERS',
+                image: 'https://i.pinimg.com/736x/4f/d3/64/4fd36483f44ba03272b8b6b1cb136864.jpg',
+                link: 'https://example.com/card1',
+                description: 'Click to view details'
+            },
+            {
+                title: 'COOKIES',
+                image: 'https://i.pinimg.com/474x/85/09/34/85093493500d883639a6258a4b892b96.jpg',
+                link: 'https://example.com/card2',
+                description: 'Click to view details'
+            },
+            {
+                title: 'CHOCO LAVA CAKE',
+                image: 'https://i.pinimg.com/474x/78/68/d6/7868d61763ee1d273b7f97df87dd297f.jpg',
+                link: 'https://example.com/card3',
+                description: 'Click to view details'
+            },
+            {
+                title: 'WINDOW',
+                image: 'https://i.pinimg.com/474x/cc/b3/84/ccb3846395641b98ee06365027a73797.jpg',
+                link: 'https://example.com/card4',
+                description: 'Click to view details'
+            },
+            {
+                title: 'ROBOTICS',
+                image: 'https://i.pinimg.com/474x/dd/66/f2/dd66f2515ce7babc01d38f37bdf1180c.jpg',
+                link: 'https://example.com/card5',
+                description: 'Click to view details'
+            },
+            {
+                title: 'POT',
+                image: 'https://i.pinimg.com/474x/89/4d/ac/894daca232016fd7ffc933275885d7f0.jpg',
+                link: 'https://example.com/card6',
+                description: 'Click to view details'
+            },
+            {
+                title: 'GARDEN',
+                image: 'https://i.pinimg.com/474x/ed/3b/47/ed3b47e745bd9f896bdf8e7e540daf75.jpg',
+                link: 'https://example.com/card7',
+                description: 'Click to view details'
+            },
+            {
+                title: 'LAMP',
+                image: 'https://i.pinimg.com/474x/b9/b7/43/b9b7433bedb3af08d0f5c11b18ee7e4e.jpg',
+                link: 'https://example.com/card8',
+                description: 'Click to view details'
+            },
+            {
+                title: 'OCEAN',
+                image: 'https://i.pinimg.com/474x/e2/6e/e1/e26ee1a361e1087ba945f973e55eaa54.jpg',
+                link: 'https://example.com/card9',
+                description: 'Click to view details'
+            },
+        ];
+
+        const cardGrid = document.getElementById('cardGrid');
+
+        cards.forEach(card => {
+            const cardElement = document.createElement('a');
+            cardElement.href = card.link;
+            cardElement.target = '_blank';
+            cardElement.className = 'card';
+
+            cardElement.innerHTML = `
+                <img src="${card.image}" alt="${card.title} Image">
+                <h2>${card.title}</h2>
+                <p>${card.description}</p>
+            `;
+
+            cardGrid.appendChild(cardElement);
+        });
+    </script>
+</body>
+</html>
